@@ -137,11 +137,7 @@ async def entrypoint(ctx: JobContext):
         vad=ctx.proc.userdata["vad"],
         llm=anthropic.LLM(model="claude-sonnet-4-20250514"),
         stt=deepgram.STT(model="nova-3"),
-        tts=hume.TTS(
-      voice=PostedUtteranceVoiceWithName(name="Sebastian Lockwood", provider="HUME_AI"),
-      description="The voice expresses excitement, anticipation, and a palpable sense of eagerness.",
-      speed="0.7"
-   ),
+        tts=hume.TTS(),
         turn_detection=MultilingualModel(),
     )
 
