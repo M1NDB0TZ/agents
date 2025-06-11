@@ -9,12 +9,16 @@ from livekit.agents import (
 )
 from livekit.agents.llm import function_tool
 from livekit.agents.voice import MetricsCollectedEvent
-from livekit.plugins import deepgram, openai, silero, anthropic, hume
+from livekit.plugins import deepgram, silero, openai, hume
+
+from hume.tts import PostedUtteranceVoiceWithName
+
+
+
 from livekit.plugins.turn_detector.multilingual import MultilingualModel
 
 from mem0 import AsyncMemoryClient
 
-from hume.tts import PostedUtteranceVoiceWithName
 
 
 logger = logging.getLogger("daemon-agent")
@@ -135,7 +139,7 @@ async def entrypoint(ctx: JobContext):
 
     session = AgentSession(
         vad=ctx.proc.userdata["vad"],
-        llm=anthropic.LLM(model="claude-sonnet-4-20250514"),
+        llm=openai.LLM(store="True", model="gpt-4.1", temperature=0.7),
         stt=deepgram.STT(model="nova-3"),
         tts=hume.TTS(),
         turn_detection=MultilingualModel(),

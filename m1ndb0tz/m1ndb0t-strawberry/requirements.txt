@@ -1,8 +1,5 @@
+livekit-agents[openai, cartesia, elevenlabs, deepgram, silero, turn-detector, mcp, hume]>=1.0
+python-dotenv>=1.0
+duckduckgo-search>=8.0
+
 mem0ai
-python-dotenv
-
-
-
-livekit-agents[google,openai,silero,deepgram,cartesia,turn-detector,hume,anthropic]~=1.0
-livekit-plugins-noise-cancellation~=0.2
-python-dotenv
